@@ -27,6 +27,7 @@ This is an implementation of a 8 puzzle game being solved through traversal algo
   - [x] Structure
   - [x] Is objective
   - [x] Compare
+  - [ ] Children
 - Visited list
   - [ ] Structure
   - [ ] Sort

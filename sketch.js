@@ -11,12 +11,12 @@ let visitedNodes,
   initialState = null;
 
 function setup() {
-  // createCanvas(400, 400);
+  createCanvas(400, 400);
 
-  visitedNodes = new List();
+  visitedNodes = new Queue();
   initialState = new Node(generateInitialState());
 
-  game = new Game(initialState);
+  game = new Game(initialState, visitedNodes);
   game.start();
 }
 

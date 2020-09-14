@@ -13,9 +13,8 @@ class Node {
     );
   }
 
-  // get state() {
-  //   return this.state;
-  // }
+  /** Return an array of nodes that might come from the instance */
+  children() {}
 
   compare(node) {
     return JSON.stringify(node.state) === JSON.stringify(this.state);
