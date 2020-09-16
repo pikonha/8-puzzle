@@ -27,7 +27,7 @@ This is an implementation of a 8 puzzle game being solved through traversal algo
   - [x] Structure
   - [x] Is objective
   - [x] Compare
-  - [ ] Children
+  - [x] Children
 - Visited list
   - [ ] Structure
   - [ ] Sort
@@ -43,3 +43,4 @@ This is an implementation of a 8 puzzle game being solved through traversal algo
 
 - [ ] Display node
 - [ ] Display solving process
+- [ ] Typescript
