@@ -13,13 +13,13 @@ This is an implementation of a 8 puzzle game being solved through traversal algo
 ## Data structures
 
 - Depth first search
-  - Visited nodes: **stack**
+  - Open nodes: **stack**
 - Breadth first search
-  - Visited nodes: **queue**
+  - Open nodes: **queue**
 - Uniform cost search
-  - Visited nodes: **sorted list**
+  - Open nodes: **sorted list**
 - A\* search
-  - Visited nodes: **sorted list**
+  - Open nodes: **sorted list**
 
 ## Tasks
 
@@ -28,15 +28,23 @@ This is an implementation of a 8 puzzle game being solved through traversal algo
   - [x] Is objective
   - [x] Compare
   - [x] Children
-- Visited list
+- Open nodes
   - [ ] Structure
-  - [ ] Sort
-  - [ ] Find
+    - [ ] Stack
+      - [ ] Find
+      - [ ] Pop
+    - [x] Queue
+      - [x] Find
+      - [x] Pop
+    - [x] SortedList
+      - [x] Sort
+      - [x] Find
+      - [x] Pop
 - Runtime
-  - [ ] Interval
+  - [x] Interval
   - [x] Generate random inital state
 - Search
-  - [ ] Weights
+  - [x] Weights
   - [ ] Prediction heuristic
 
 ## Bonus

@@ -6,20 +6,35 @@ function generateInitialState() {
   return Array.from([...Array(8).keys(), null]).sort(() => 0.5 - Math.random());
 }
 
-let visitedNodes,
+let openNodes,
   game,
   initialState = null;
 
 function setup() {
   createCanvas(400, 400);
+  frameRate(2);
 
-  visitedNodes = new Queue();
-  initialState = new Node(generateInitialState());
+  // openNodes = new Queue();
+  openNodes = new SortedList();
+  initialState = new Node([0, 1, 2, 3, null, 5, 6, 4, 7]);
+  // initialState = new Node(generateInitialState());
+  openNodes.insert(initialState);
+  console.log("===========");
 
-  game = new Game(initialState, visitedNodes);
-  game.start();
+  game = new Game(openNodes);
+  // noLoop();
 }
 
+let n = 0;
 function draw() {
+  // if (n++ === 2) return noLoop();
   background(220);
+
+  if (game.isDone()) return noLoop();
+
+  game.nextTurn();
+
+  game.display();
+
+  console.log("===========");
 }
