@@ -7,34 +7,28 @@ function generateInitialState() {
 }
 
 let openNodes,
-  game,
-  initialState = null;
+  game = null;
 
 function setup() {
   createCanvas(400, 400);
-  frameRate(2);
 
   // openNodes = new Queue();
   openNodes = new SortedList();
-  initialState = new Node([0, 1, 2, 3, null, 5, 6, 4, 7]);
-  // initialState = new Node(generateInitialState());
+  const initialState = new Node(generateInitialState());
   openNodes.insert(initialState);
-  console.log("===========");
 
   game = new Game(openNodes);
-  // noLoop();
 }
 
-let n = 0;
 function draw() {
-  // if (n++ === 2) return noLoop();
-  background(220);
-
-  if (game.isDone()) return noLoop();
-
-  game.nextTurn();
+  background(51);
 
   game.display();
 
-  console.log("===========");
+  if (game.isDone()) {
+    // background("green");
+    return noLoop();
+  }
+
+  game.nextTurn();
 }

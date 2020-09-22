@@ -7,7 +7,13 @@ class Game {
   }
 
   display() {
-    text(this.turns, 20, 20);
+    fill(255);
+    text(this.turns, width / 2, height / 2);
+
+    // this.openNodes.getValues().forEach((node, i) => {
+    //   text(node.getValue(), i * 120 + 50, this.turns * 80 + 20);
+    //   node.display(i * 120 + 50, this.turns * 80 + 40);
+    // });
   }
 
   isDone() {
@@ -21,20 +27,11 @@ class Game {
   nextTurn() {
     ++this.turns;
 
-    this.openNodes.getValues();
-    console.log(
-      "visited nodes",
-      this.visitedNodes.map((v) => v.getState())
-    );
-
     this.currentNode = openNodes.pop();
     this.visitedNodes.push(this.currentNode);
 
     this.currentNode.children().forEach((node) => {
-      if (this.isNodeVisited(node)) {
-        // console.log("node visited ", node.getState());
-      } else {
-        // console.log("node not visited ", node.getState());
+      if (!this.isNodeVisited(node)) {
         this.openNodes.insert(node);
       }
     });

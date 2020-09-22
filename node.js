@@ -11,7 +11,7 @@ class Node {
   getValue() {
     return this.state.reduce((value, element, index, source) => {
       if (element === null && index !== source.length - 1) return value + 1;
-      if (element !== index) return value + 1;
+      if (element !== null && element !== index) return value + 1;
       return value;
     }, 0);
   }
@@ -39,8 +39,8 @@ class Node {
       switch (true) {
         case resultantIndex < 0:
         case resultantIndex > 8:
-        case (emptyIndex == 2 || emptyIndex == 6) && variant === 1:
-        case (emptyIndex == 3 || emptyIndex == 5) && variant === -1:
+        case (emptyIndex == 2 || emptyIndex == 5) && variant === 1:
+        case (emptyIndex == 3 || emptyIndex == 6) && variant === -1:
           return edges;
         default: {
           return [
@@ -56,15 +56,14 @@ class Node {
     return JSON.stringify(node.getState()) === JSON.stringify(this.state);
   }
 
-  //   display() {
-  //     fill(246);
-  //     textSize(32);
+  display(x, y, color = 255) {
+    fill(color);
+    textAlign(CENTER);
 
-  //     this.state.forEach((value) => {
-  //       text(String.toString(value));
-  //       square(10, 10, 20);
-  //     });
-  //   }
+    chunkArray(this.state, 3).forEach((chunk, index) => {
+      text(JSON.stringify(chunk), x, y + index * 20);
+    });
+  }
 }
 
 function swapArrayIndex(array, indexA, indexB) {
@@ -75,4 +74,18 @@ function swapArrayIndex(array, indexA, indexB) {
   ];
 
   return resultantArray;
+}
+
+function chunkArray(myArray, chunk_size) {
+  var index = 0;
+  var arrayLength = myArray.length;
+  var tempArray = [];
+
+  for (index = 0; index < arrayLength; index += chunk_size) {
+    myChunk = myArray.slice(index, index + chunk_size);
+    // Do something if you want with the group
+    tempArray.push(myChunk);
+  }
+
+  return tempArray;
 }

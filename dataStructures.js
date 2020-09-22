@@ -3,25 +3,16 @@ class Queue {
     this.values = [];
   }
 
-  getValues() {
-    console.log(this.values.map((v) => v.getState()));
-  }
+  getValues() {}
 
   insert(value) {
-    if (this.values.some((v) => v.compare(value))) {
-      console.log("not inserted", value.getState());
-      return;
+    if (!this.values.some((v) => v.compare(value))) {
+      this.values = [...this.values, value];
     }
-
-    this.values = [...this.values, value];
-    console.log("inserted", value.getState());
   }
 
   pop() {
-    const node = this.values.shift();
-
-    console.log("removed", node.getState());
-    return node;
+    return this.values.shift();
   }
 }
 
@@ -37,24 +28,17 @@ class SortedList {
   }
 
   getValues() {
-    console.log(
-      "open values",
-      this.values.map((v) => v.getState())
-    );
+    return this.values;
   }
 
   insert(value) {
     if (!this.values.some((v) => v.compare(value))) {
-      this.values = [...this.values, value];
+      this.values = [value, ...this.values];
       this.values.sort((a, b) => (a.getValue() < b.getValue() ? -1 : 1));
-      console.log("inserted", value.getState(), " ", value.getValue());
     }
   }
 
   pop() {
-    const node = this.values.shift();
-
-    console.log("removed", node.getState());
-    return node;
+    return this.values.shift();
   }
 }
