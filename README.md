@@ -6,7 +6,7 @@ This is an implementation of a 8 puzzle game being solved through traversal algo
 
 - [ ] Depth first search
 - [ ] Breadth first search
-- [ ] Uniform cost search
+- [x] Uniform cost search
 - [ ] A\* search simple heuristic
 - [ ] A\* search better heuristic
 
@@ -52,3 +52,10 @@ This is an implementation of a 8 puzzle game being solved through traversal algo
 - [ ] Display node
 - [ ] Display solving process
 - [ ] Typescript
+
+## References
+
+- [Order array nulls last](https://stackoverflow.com/a/29829370/8500815)
+- [Generate initial state](https://stackoverflow.com/a/18650169/8500815)
+- [Swap array index](https://stackoverflow.com/questions/872310/javascript-swap-array-elements/14881632)
+- [Tree visualization](https://github.com/Schnurber/treevis)

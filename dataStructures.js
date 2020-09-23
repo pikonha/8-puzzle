@@ -3,8 +3,6 @@ class Queue {
     this.values = [];
   }
 
-  getValues() {}
-
   insert(value) {
     if (!this.values.some((v) => v.compare(value))) {
       this.values = [...this.values, value];
@@ -18,17 +16,13 @@ class Queue {
 
 class List {
   constructor() {
-    this.state = new Set();
+    this.state = [];
   }
 }
 
 class SortedList {
   constructor() {
     this.values = [];
-  }
-
-  getValues() {
-    return this.values;
   }
 
   insert(value) {
