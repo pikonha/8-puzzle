@@ -3,6 +3,14 @@ class Queue {
     this.values = [];
   }
 
+  getValues() {
+    return this.values;
+  }
+
+  getLength() {
+    return this.values.length;
+  }
+
   insert(value) {
     if (!this.values.some((v) => v.compare(value))) {
       this.values = [...this.values, value];
@@ -21,14 +29,23 @@ class List {
 }
 
 class SortedList {
-  constructor() {
+  constructor(sortFunction) {
     this.values = [];
+    this.sortFunction = sortFunction;
   }
 
-  insert(value) {
+  getValues() {
+    return this.values;
+  }
+
+  getLength() {
+    return this.values.length;
+  }
+
+  insert(value, heuristicValue = 0) {
     if (!this.values.some((v) => v.compare(value))) {
       this.values = [value, ...this.values];
-      this.values.sort((a, b) => (a.getValue() < b.getValue() ? -1 : 1));
+      this.values.sort(this.sortFunction(heuristicValue));
     }
   }
 

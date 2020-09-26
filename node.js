@@ -1,7 +1,9 @@
 class Node {
   // State = [1,2,3,4,5,6,7,8,null]
-  constructor(state) {
+  constructor(state, parent = null) {
     this.state = state;
+    this.parent = parent;
+    this.maximun;
   }
 
   getState() {
@@ -9,11 +11,22 @@ class Node {
   }
 
   getValue() {
-    return this.state.reduce((value, element, index, source) => {
-      if (element === null && index !== source.length - 1) return value + 1;
+    return this.state.reduce((value, element, index) => {
       if (element !== null && element !== index) return value + 1;
       return value;
     }, 0);
+  }
+
+  getDepth() {
+    let depth = 0;
+    let node = this;
+
+    do {
+      depth += 1;
+      node = node.parent;
+    } while (node);
+
+    return depth;
   }
 
   isObjective() {
@@ -45,7 +58,10 @@ class Node {
         default: {
           return [
             ...edges,
-            new Node(swapArrayIndex(this.state, resultantIndex, emptyIndex)),
+            new Node(
+              swapArrayIndex(this.state, resultantIndex, emptyIndex),
+              this
+            ),
           ];
         }
       }
@@ -83,7 +99,6 @@ function chunkArray(myArray, chunk_size) {
 
   for (index = 0; index < arrayLength; index += chunk_size) {
     myChunk = myArray.slice(index, index + chunk_size);
-    // Do something if you want with the group
     tempArray.push(myChunk);
   }
 
