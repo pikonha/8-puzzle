@@ -3,7 +3,6 @@ class Node {
   constructor(state, parent = null) {
     this.state = state;
     this.parent = parent;
-    this.maximun;
   }
 
   getState() {
@@ -30,14 +29,7 @@ class Node {
   }
 
   isObjective() {
-    return (
-      JSON.stringify(this.state) ===
-      JSON.stringify(
-        [...this.state].sort(
-          (a, b) => (a === null) - (b === null) || +(a > b) || -(a < b)
-        )
-      )
-    );
+    return JSON.stringify(this.state) === JSON.stringify(GOAL_STATE);
   }
 
   /** Return an array of nodes that might come after the instance */
@@ -93,11 +85,10 @@ function swapArrayIndex(array, indexA, indexB) {
 }
 
 function chunkArray(myArray, chunk_size) {
-  var index = 0;
-  var arrayLength = myArray.length;
-  var tempArray = [];
+  const arrayLength = myArray.length;
+  let tempArray = [];
 
-  for (index = 0; index < arrayLength; index += chunk_size) {
+  for (let index = 0; index < arrayLength; index += chunk_size) {
     myChunk = myArray.slice(index, index + chunk_size);
     tempArray.push(myChunk);
   }

@@ -48,11 +48,11 @@ This is an implementation of a 8 puzzle game being solved through traversal algo
   - [x] Generate random inital state
 - Search
   - [x] Weights
-  - [ ] Prediction heuristic
+  - [x] Prediction heuristic
 
 ## Bonus
 
-- [ ] Display node
+- [x] Display node
 - [x] Display solving process
 - [ ] Typescript
 
@@ -62,4 +62,5 @@ This is an implementation of a 8 puzzle game being solved through traversal algo
 - [Order array nulls last](https://stackoverflow.com/a/29829370/8500815)
 - [Generate initial state](https://stackoverflow.com/a/18650169/8500815)
 - [Swap array index](https://stackoverflow.com/questions/872310/javascript-swap-array-elements/14881632)
-- [Tree visualization](https://github.com/putuprema/BinarySearchTree-JS)
+- [Tree visualization](https://github.com/putuprema/BinarySearchTree-J)
+- [Generate random arbitrary](https://stackoverflow.com/questions/1527803/generating-random-whole-numbers-in-javascript-in-a-specific-range)

@@ -1,9 +1,27 @@
+function getRandomArbitrary(min, max) {
+  return Math.random() * (max - min) + min;
+}
+
+Array.prototype.sample = function () {
+  return this[Math.floor(Math.random() * this.length)];
+};
+
 /**
  * returns an array randomized with a null value
- * e.g.: [1, 4, 2, 6, 3, null, 8, 5, 7];
+ * e.g.: [1, 4, 2, 6, 3, null, 0, 5, 7];
  */
 function generateInitialState() {
-  return Array.from([...Array(8).keys(), null]).sort(() => 0.5 - Math.random());
+  const finalNode = new Node(GOAL_STATE);
+  const shuffleLimit = getRandomArbitrary(1, 20);
+
+  let node = finalNode;
+  for (let i = 0; i < shuffleLimit; ++i) {
+    const children = node.children();
+    const sample = children.sample();
+    node = sample;
+  }
+
+  return node;
 }
 
 function getOpenNodesStructure(aglorithmOption) {
@@ -20,6 +38,7 @@ function getOpenNodesStructure(aglorithmOption) {
 }
 
 let game = null;
+const GOAL_STATE = [0, 1, 2, 3, 4, 5, 6, 7, null];
 
 function preload() {
   const startButton = document.querySelector("button");
@@ -27,11 +46,11 @@ function preload() {
 }
 
 function setupGame() {
-  const aglorithmSelector = document.querySelector("#algorithm-selector");
-  const aglorithmOption = aglorithmSelector.value;
+  const algorithmSelector = document.querySelector("#algorithm-selector");
+  const algorithmOption = algorithmSelector.value;
 
-  const openNodes = getOpenNodesStructure(aglorithmOption);
-  const initialState = new Node(generateInitialState());
+  const openNodes = getOpenNodesStructure(algorithmOption);
+  const initialState = generateInitialState();
   openNodes.insert(initialState);
 
   game = new Game(openNodes);
