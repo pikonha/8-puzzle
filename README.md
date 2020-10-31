@@ -32,10 +32,7 @@ This is an implementation of a 8 puzzle game being solved through traversal algo
   - [x] Compare
   - [x] Children
 - Open nodes
-  - [ ] Structure
-    - [ ] Stack
-      - [ ] Find
-      - [ ] Pop
+  - [x] Structure
     - [x] Queue
       - [x] Find
       - [x] Pop
@@ -54,7 +51,6 @@ This is an implementation of a 8 puzzle game being solved through traversal algo
 
 - [x] Display node
 - [x] Display solving process
-- [ ] Typescript
 
 ## References
 

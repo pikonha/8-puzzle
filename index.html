@@ -1,29 +1,32 @@
 <!DOCTYPE html>
 <html lang="en">
+  <head>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.1.9/p5.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.1.9/addons/p5.sound.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="style.css" />
+    <meta charset="utf-8" />
+  </head>
 
-<head>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.1.9/p5.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.1.9/addons/p5.sound.min.js"></script>
-  <link rel="stylesheet" type="text/css" href="style.css">
-  <meta charset="utf-8" />
+  <body>
+    <div
+      style="
+        display: flex;
+        justify-content: space-evenly;
+        max-width: 300px;
+        padding: 0.5rem 0;
+      "
+    >
+      <select id="algorithm-selector">
+        <option value="uniform-cost">Uniform Cost</option>
+        <option value="a*">A*</option>
+      </select>
 
-</head>
+      <button style="cursor: pointer">Start</button>
+    </div>
 
-<body>
-  <div style="display: flex; justify-content: space-evenly; max-width: 300px; padding: 0.5rem 0;">
-    <select id="algorithm-selector">
-      <option value="depth">depth first</option>
-      <option value="a*">A*</option>
-    </select>
-
-    <button style="cursor: pointer;">Start</button>
-  </div>
-
-
-  <script src="dataStructures.js"></script>
-  <script src="game.js"></script>
-  <script src="node.js"></script>
-  <script src="sketch.js"></script>
-</body>
-
+    <script src="dataStructures.js"></script>
+    <script src="game.js"></script>
+    <script src="node.js"></script>
+    <script src="sketch.js"></script>
+  </body>
 </html>
