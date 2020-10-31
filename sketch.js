@@ -26,7 +26,7 @@ function generateInitialState() {
 
 function getOpenNodesStructure(aglorithmOption) {
   switch (aglorithmOption) {
-    case "depth":
+    case "uniform-cost":
       return new SortedList(() => (a, b) =>
         a.getValue() < b.getValue() ? -1 : 1
       );

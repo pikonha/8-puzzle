@@ -50,6 +50,8 @@ class Game {
     this.currentNode = this.openNodes.pop();
     this.visitedNodes.push(this.currentNode);
 
+    if (this.isDone()) return true;
+
     this.currentNode.children().forEach((node) => {
       if (!this.isNodeVisited(node)) {
         this.openNodes.insert(node, this.visitedNodes.length);
@@ -57,8 +59,6 @@ class Game {
     });
 
     this.setFrontierMaxLength();
-
-    if (this.isDone()) return true;
   }
 
   setFrontierMaxLength() {
